@@ -72,6 +72,11 @@ const Details = () => {
                     </div>
                     {/* {stats} : Array<></>stats = {pokemon.stats} */}
                 </div>
+                <div className="Ddtail__textBox">
+                    <div className="detail__textBox-container">
+                        <p className='detail__textBox-text detail__font'>テスト</p>
+                    </div>
+                </div>
             </div>
         </div>
         </>

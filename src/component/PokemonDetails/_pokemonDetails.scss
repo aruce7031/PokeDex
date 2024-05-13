@@ -40,7 +40,7 @@
     &__features{
         // max-width: 420px;
         width: 40vw;
-        max-width: 450px;
+        // max-width: 450px;
         padding: 2vw;
         border:3px solid rgb(166, 161, 161);
         border-radius:20px ;
@@ -64,12 +64,24 @@
     }
     &__spec-container{
         width: 40vw;
-        max-width: 450px;
+        // max-width: 450px;
         padding: 2vw;
         border:3px solid rgb(166, 161, 161);
         border-radius:20px ;
         &:last-child {
             margin-bottom: none;
+        }
+    }
+    &__textBox {
+        &-container{
+            width: 100%;
+            height: 20vw;
+            // padding : 3vw 3vw;
+            // margin : 0 auto;
+        }
+        &-text{
+            margin: auto 0;
+            padding : 3vw 5vw;
         }
     }
 }

@@ -97,7 +97,6 @@
 }
 .detail__features {
   width: 40vw;
-  max-width: 450px;
   padding: 2vw;
   border: 3px solid rgb(166, 161, 161);
   border-radius: 20px;
@@ -121,13 +120,20 @@
 }
 .detail__spec-container {
   width: 40vw;
-  max-width: 450px;
   padding: 2vw;
   border: 3px solid rgb(166, 161, 161);
   border-radius: 20px;
 }
 .detail__spec-container:last-child {
   margin-bottom: none;
+}
+.detail__textBox-container {
+  width: 100%;
+  height: 20vw;
+}
+.detail__textBox-text {
+  margin: auto 0;
+  padding: 3vw 5vw;
 }
 
 .title-font {
@@ -216,6 +222,11 @@ html {
 
 p {
   margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
 }
 
 ul {
