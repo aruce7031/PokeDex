@@ -1,0 +1,27 @@
+.detail {
+    &__spec {
+        display:flex;
+        margin-bottom : 1rem;
+        width: auto;
+        &-name {
+            text-align: center;
+            margin : auto 0 ;
+            // margin-right: 1rem;
+            width: 10vw;
+            font-size: 1.5vw;
+        }
+        &-list {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            width: 100%;
+        }
+    }
+    &__item-list {
+        width: 1.2vw;
+        height: 3vw;
+        border-radius: 8px;
+        margin-right: 0.5rem;
+        background-color: #f2f2f2;
+    }
+}

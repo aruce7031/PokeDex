@@ -1,0 +1,22 @@
+.header {
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 calc((100vw / 750)* 25);
+        border-bottom: 1px solid;
+    }
+    &__title {
+        & p {
+            font-size: 2.5rem;
+        }
+    }
+    &__search{
+        width: 3vw;
+        &-icon{
+            width: 100%;
+            margin-top: 0.5rem;
+            cursor: pointer;
+        }
+    }
+}

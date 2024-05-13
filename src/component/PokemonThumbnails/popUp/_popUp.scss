@@ -1,0 +1,31 @@
+.popUp {
+    position : fixed;
+    top : 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &__main{
+        width: 50vw;
+        height: 95vh;
+        background-color: white;
+        border-radius: 10px;
+        border : 2px solid;
+    }
+    &__header{
+        display: flex;
+        border-bottom : solid black;
+    }
+    &__image{
+        width: 3vw;
+    }
+    &__input {
+        margin : 0 auto;
+    }
+    &__search {
+        margin : 5vw 10vw;
+        text-align: center;
+    }
+    &__input {
+        width: 40vw;
+        margin : 0 auto;
+    }
+}

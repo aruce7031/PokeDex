@@ -1,0 +1,17 @@
+.root {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    // margin:1% 2%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}

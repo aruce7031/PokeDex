@@ -1,0 +1,18 @@
+@use "component/PokemonThumbnails/Thumbnail/thumbnail";
+@use "component/PokemonThumbnails/PokemonThumbnails";
+@use "component/PokemonDetails/pokemonDetails";
+@use "component/PokemonThumbnails/header/header";
+@use "component/PokemonDetails/DetailSpec/detailSpec";
+@use "component/PokemonThumbnails/popUp/popUp.scss";
+
+html {
+    font-size: 62.5%;
+}
+
+p {
+    margin: 0;
+}
+ul {
+    margin: 0;
+    padding-inline-start: 0;
+}
