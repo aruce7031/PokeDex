@@ -47,22 +47,22 @@ interface Stats {
 }
 
 
-export const useGetOnePokemon = (id?: string) => {
+export const useGetOnePokemon = (id: string) => {
 
     const [pokemonData, setPokemonData] = useState<pokemon>();
 
     useEffect(() => {
         const upDataPoke = async () => {
-        const pokeDetail = await getDetails()
+        const pokeDetail = await getDetails(id)
         setPokemonData({...pokeDetail})
         }
         upDataPoke();
-    },[]);
+    },[id]);
 
     const statsName = ["HP", "こうげき", "ぼうぎょ", "とくこう", "とくぼう", "すばやさ"];
 
 
-    const getDetails = async () => {
+    const getDetails = async (id:string) => {
         const url : string = "https://pokeapi.co/api/v2/pokemon";
         const res = await resJson(`${url}/${id}`);
 

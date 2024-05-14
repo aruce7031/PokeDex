@@ -8,8 +8,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* 検索バー */}
-          <Route path="/" element = {<PokemonThumbnails></PokemonThumbnails>} ></Route>
-          <Route path = "/Details/:id" element = {<Details></Details>}></Route>
+          <Route path="/" element = {<PokemonThumbnails/>} />
+          <Route path="/Details/:id" element = {<Details/>}/>
         </Routes>
       </BrowserRouter>
     </>

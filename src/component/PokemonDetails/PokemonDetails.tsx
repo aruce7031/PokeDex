@@ -11,7 +11,8 @@ const Details = () => {
     const [popUp,setPopUp] = useState(false);
 
     const { id } = useParams();
-    const pokemon = useGetOnePokemon(id);
+
+    const pokemon = useGetOnePokemon(id ?? "1");
     const next = String(Number(id) + 1) ;
     // 一旦試し
     let back = String(Number(id) - 1) ;
