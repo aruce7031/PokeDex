@@ -14,9 +14,11 @@ const Details = () => {
     const next = String(Number(id) + 1) ;
     // 一旦試し
     let back = String(Number(id) - 1) ;
+
     if(back === "0") {
         back = "1";
     }
+
     const togglePopUp = () => {
         setPopUp(!popUp)
     }
@@ -44,7 +46,7 @@ const Details = () => {
                         <span className='detail__name title-font'>{pokemon.name}</span>
                     </h2>
                 </div>
-                <a href={next} className="detail__link-nav"></a>
+                <a href={`/Details/${next}`} className="detail__link-nav"></a>
             </div>
             <div className="detail__infoContainer">
                 <div className="detail__info">
