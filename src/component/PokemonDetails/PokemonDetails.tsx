@@ -4,6 +4,7 @@ import { useGetOnePokemon } from '../../hooks/detailPage/useGetOnePokemon';
 import PopUp from '../PokemonThumbnails/popUp/PopUp';
 import Header from '../PokemonThumbnails/header/Header';
 import DetailSpec from './DetailSpec/DetailSpec';
+import {Link } from "react-router-dom"
 
 
 const Details = () => {
@@ -35,7 +36,7 @@ const Details = () => {
                     <PopUp></PopUp>
                 )}
             <div className="detail__top">
-            <a href={back} className="detail__link-nav" ></a>
+            <Link to={`/Details/${back}`} className="detail__link-nav" />
                 <div className="detail__imageContainer">
                     <img src={pokemon.image} alt="" className='detail__image' />
                 </div>
@@ -46,7 +47,7 @@ const Details = () => {
                         <span className='detail__name title-font'>{pokemon.name}</span>
                     </h2>
                 </div>
-                <a href={`/Details/${next}`} className="detail__link-nav"></a>
+            <Link to={`/Details/${next}`} className="detail__link-nav" />
             </div>
             <div className="detail__infoContainer">
                 <div className="detail__info">
