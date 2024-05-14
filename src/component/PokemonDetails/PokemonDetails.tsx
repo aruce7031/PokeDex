@@ -6,15 +6,10 @@ import Header from '../PokemonThumbnails/header/Header';
 import DetailSpec from './DetailSpec/DetailSpec';
 
 
-
 const Details = () => {
-    // これをuseGetPokemonの引数に
     const [popUp,setPopUp] = useState(false);
 
     const { id } = useParams();
-    //stateを宣言するのではなくなんとかここのステータスを持って来れるようにした方が良い
-    // useGetPokemonで処理を追加する
-    // 引数があるのかないのかで状態を遷移すると良いのではないか
     const pokemon = useGetOnePokemon(id);
 
     const togglePopUp = () => {
@@ -72,9 +67,9 @@ const Details = () => {
                     </div>
                     {/* {stats} : Array<></>stats = {pokemon.stats} */}
                 </div>
-                <div className="Ddtail__textBox">
+                <div className="detail__textBox">
                     <div className="detail__textBox-container">
-                        <p className='detail__textBox-text detail__font'>テスト</p>
+                        <p className='detail__textBox-text'>{pokemon.flavorArray[pokemon.flavorArray.length -1 ].flavor_text}</p>
                     </div>
                 </div>
             </div>

@@ -9,6 +9,12 @@ html {
     font-size: 62.5%;
 }
 
+.root {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
 p {
     margin: 0;
     margin-block-start:0;

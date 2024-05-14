@@ -13,6 +13,19 @@ type obj ={
     abilities : Array<string>
     stats : Array<number>
     statsName : Array<string>
+    flavorArray : any
+}
+
+interface Flavor {
+    flavor_text: string
+    language: {
+        name: 'ja'|'en'
+        url: string
+    }
+    version: {
+        name: string
+        url: string
+    }
 }
 
 
@@ -34,7 +47,8 @@ export const useGetOnePokemon = (id : string | undefined) => {
         const url : string = "https://pokeapi.co/api/v2/pokemon";
         const res = await resJson(`${url}/${id}`);
         const speciesState = await resJson(res.species.url);
-        console.log(speciesState);
+        const flavorArray = speciesState.flavor_text_entries.filter((obj : Flavor) => obj.language.name === "ja");
+        console.log(flavorArray);
         const typeArray = res.types;
         const pokeType = typeArray.length > 1 ? `${changeJpPokeName(typeArray[0].type.name)} / ${changeJpPokeName(typeArray[1].type.name)}`  : changeJpPokeName(typeArray[0].type.name);
         const abilities : Array<object>= res.abilities;
@@ -59,9 +73,10 @@ export const useGetOnePokemon = (id : string | undefined) => {
             abilities : abilityResult,
             stats : stats,
             statsName : statsName,
+            flavorArray : flavorArray
+
         }
 
-        // setTest(obj);
         return obj;
     }
 
