@@ -2,10 +2,14 @@ import { useState,useEffect, RefObject, useCallback} from "react";
 import { resJson } from "../../utils/resJson";
 
 
+interface Pokemon {
+  name: string,
+  url: string
+}
+
 export const useGetPokemon= (ref: RefObject<HTMLElement |null>) => {
   const url : string = "https://pokeapi.co/api/v2/pokemon";
   const [pokemons, setPokemons] = useState<Array<object>>([]);
-  // utils hooks
   const [nextUrl, setNextUrl] = useState<string>(url);
 
   const scrollObserver = useCallback(
@@ -41,7 +45,7 @@ export const useGetPokemon= (ref: RefObject<HTMLElement |null>) => {
       const result = res.results;
 
       const objArray = await Promise.all(
-        result.map( async (pokemon : any) => {
+        result.map( async (pokemon : Pokemon) => {
           const state = await resJson(pokemon.url);
           const speciesState = await resJson(state.species.url);
 
@@ -54,7 +58,7 @@ export const useGetPokemon= (ref: RefObject<HTMLElement |null>) => {
           return obj;
         })
     );
-      return objArray
+      return objArray;
   }
 
     return pokemons;

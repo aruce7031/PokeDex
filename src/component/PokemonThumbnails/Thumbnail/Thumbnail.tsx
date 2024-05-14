@@ -1,6 +1,6 @@
 import {Link } from "react-router-dom"
 
-type Props ={
+interface Props {
     name : string
     image : string
     id : number,

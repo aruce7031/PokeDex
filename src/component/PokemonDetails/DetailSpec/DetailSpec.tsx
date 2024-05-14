@@ -27,8 +27,6 @@ const DetailSpec = (props :prop) => {
                     <li className="detail__item-list"></li>
                 </ul>
                 <ul className="detail__spec-list">
-                    {/* ここループで行けたらいい */}
-                    {/* ここ確認したい */}
                     {[...Array(Math.floor(props.stats / 15))].map((_,i) => {
                         return  <li key={i}  className="detail__item-list is-value"></li>
                     })}

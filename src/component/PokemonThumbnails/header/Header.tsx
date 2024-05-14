@@ -1,3 +1,5 @@
+import icon from "/public/search_icon.svg"
+
 
 type prop = {
     click : () => void;
@@ -12,7 +14,7 @@ const Header = (props : prop) => {
                         <p>ポケモン図鑑</p>
                     </div>
                     <div className="header__search">
-                        <img className="header__search-icon" src="../../../public/search_icon.svg" alt="" onClick={props.click} />
+                        <img className="header__search-icon" src={icon} alt="" onClick={props.click} />
                     </div>
                 </div>
             </header>

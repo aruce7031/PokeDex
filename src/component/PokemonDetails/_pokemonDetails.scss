@@ -5,7 +5,7 @@
         margin-bottom: 3vw;
     }
     &__top{
-        background-image: url("../../../public/pattern.svg");
+        background-image: url("/public/pattern.svg");
         background-color: rgb(223, 223, 223);
         display: flex;
         justify-content: center;
@@ -17,7 +17,7 @@
         padding : 0 3vw;
     }
     &__image{
-        max-width: 380px;
+        max-width: 35vw;
     }
     &__names {
         background-color: white;
@@ -89,5 +89,5 @@
 }
 
 .title-font{
-    font-size: 3rem;
+    font-size: 3vw;
 }

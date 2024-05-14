@@ -5,10 +5,9 @@
         flex-direction: column;
         flex-grow: 1;
         width:12vw;
-        // height : 20vw;
-        margin : 20px 5px;
+        margin : 3vw 1.5vw 0 1.5vw;
         border:1px solid rgb(166, 161, 161);
-        border-radius:20px ;
+        border-radius:2vw ;
         :hover{
             cursor: pointer;
         }
@@ -19,7 +18,6 @@
         margin-top: 10px;
     }
     &__image{
-        // ここあとで調整
         text-align: center;
         width: 100%;
     }

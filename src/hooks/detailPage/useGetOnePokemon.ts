@@ -2,7 +2,7 @@ import { useState,useEffect} from "react";
 import { resJson } from "../../utils/resJson";
 import { changeJpPokeName } from "../../utils/changePokeType";
 
-type obj ={
+interface pokemon {
     name : string
     image : string
     type : string
@@ -10,10 +10,10 @@ type obj ={
     sorting : string
     height : string
     weight : string
-    abilities : Array<string>
-    stats : Array<number>
-    statsName : Array<string>
-    flavorArray : any
+    abilities : string[]
+    stats : number[]
+    statsName : string[]
+    flavorArray : Flavor[]
 }
 
 interface Flavor {
@@ -28,56 +28,77 @@ interface Flavor {
     }
 }
 
+interface Ability {
+    ability: {
+        name: string,
+        url: string
+    },
+    is_hidden: boolean,
+    slot: number,
+}
 
-export const useGetOnePokemon = (id : string | undefined) => {
+interface Stats {
+    base_stat: number,
+    effort: number,
+    stat:{
+    name: string,
+    url: string
+    }
+}
 
-    const [pokemonData, setPokemonData] = useState<obj>();
+
+export const useGetOnePokemon = (id?: string) => {
+
+    const [pokemonData, setPokemonData] = useState<pokemon>();
 
     useEffect(() => {
-        const sample = async () => {
+        const upDataPoke = async () => {
         const pokeDetail = await getDetails()
         setPokemonData({...pokeDetail})
         }
-        sample();
+        upDataPoke();
     },[]);
 
     const statsName = ["HP", "こうげき", "ぼうぎょ", "とくこう", "とくぼう", "すばやさ"];
 
+
     const getDetails = async () => {
         const url : string = "https://pokeapi.co/api/v2/pokemon";
         const res = await resJson(`${url}/${id}`);
-        const speciesState = await resJson(res.species.url);
-        const flavorArray = speciesState.flavor_text_entries.filter((obj : Flavor) => obj.language.name === "ja");
-        console.log(flavorArray);
+
+        const resSpeciesState = await resJson(res.species.url);
+        const flavorArray = resSpeciesState.flavor_text_entries.filter((obj : Flavor) => obj.language.name === "ja");
+
         const typeArray = res.types;
         const pokeType = typeArray.length > 1 ? `${changeJpPokeName(typeArray[0].type.name)} / ${changeJpPokeName(typeArray[1].type.name)}`  : changeJpPokeName(typeArray[0].type.name);
-        const abilities : Array<object>= res.abilities;
-        const ability = abilities.filter((obj : any) => !(obj.is_hidden));
-        const abilityResult = await Promise.all(
-            ability.map(async (obj :any) => {
+
+        const abilities : Ability [] = res.abilities;
+        const filterAbilities = abilities.filter((obj : Ability) => !(obj.is_hidden));
+        const ability = await Promise.all(
+            filterAbilities.map(async (obj :Ability) => {
                 const resAbility = await resJson(obj.ability.url);
                 return resAbility.names[0].name;
             })
         );
 
-        const stats = res.stats.map((obj : any) => obj["base_stat"]);
+        const stats = res.stats.map((obj : Stats) => obj["base_stat"]);
 
-        const obj ={
-            name : speciesState.names[0].name,
+        const pokemon ={
+            name : resSpeciesState.names[0].name,
             image : res.sprites.other["official-artwork"].front_default,
             type : pokeType,
             id : res.id,
-            sorting : speciesState.genera[0].genus,
+            sorting : resSpeciesState.genera[0].genus,
             height : (res.height / 10).toFixed(1),
             weight : ((res.weight) / 10).toFixed(1),
-            abilities : abilityResult,
+            abilities : ability,
             stats : stats,
             statsName : statsName,
             flavorArray : flavorArray
 
         }
 
-        return obj;
+        return pokemon;
     }
 
 

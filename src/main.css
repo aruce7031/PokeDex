@@ -4,9 +4,9 @@
   flex-direction: column;
   flex-grow: 1;
   width: 12vw;
-  margin: 20px 5px;
+  margin: 3vw 1.5vw 0 1.5vw;
   border: 1px solid rgb(166, 161, 161);
-  border-radius: 20px;
+  border-radius: 2vw;
 }
 .thumbnail-container :hover {
   cursor: pointer;
@@ -57,7 +57,7 @@
   margin-bottom: 3vw;
 }
 .detail__top {
-  background-image: url("../../../public/pattern.svg");
+  background-image: url("/public/pattern.svg");
   background-color: rgb(223, 223, 223);
   display: flex;
   justify-content: center;
@@ -69,7 +69,7 @@
   padding: 0 3vw;
 }
 .detail__image {
-  max-width: 380px;
+  max-width: 35vw;
 }
 .detail__names {
   background-color: white;
@@ -140,7 +140,7 @@
 }
 
 .title-font {
-  font-size: 3rem;
+  font-size: 3vw;
 }
 
 .header__container {
@@ -180,16 +180,16 @@
   width: 100%;
   position: absolute;
 }
+.detail__spec-content {
+  position: relative;
+  width: 100%;
+}
 .detail__item-list {
   width: 1.2vw;
   height: 3vw;
   border-radius: 8px;
   margin-right: 0.5rem;
   background-color: #f2f2f2;
-}
-.detail__spec-content {
-  position: relative;
-  width: 100%;
 }
 
 .is-value {

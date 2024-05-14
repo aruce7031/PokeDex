@@ -45,8 +45,6 @@ const Details = () => {
                         <p className='detail__sorting detail__font'>分類：{pokemon.sorting}</p>
                         <p className='detail__type detail__font'>タイプ：{pokemon.type}</p>
                         <div className='detail__body'>
-                            {/* 一桁の場合0.数字のようにする必要がある。
-                            また二桁の場合には間に小数点をつける必要がある */}
                             <p className='detail__height detail__font'>高さ：{pokemon.height}m</p>
                             <p className='detail__weight detail__font'>重さ：{pokemon.weight}kg</p>
                         </div>
@@ -65,7 +63,6 @@ const Details = () => {
                             </DetailSpec>
                         })}
                     </div>
-                    {/* {stats} : Array<></>stats = {pokemon.stats} */}
                 </div>
                 <div className="detail__textBox">
                     <div className="detail__textBox-container">
