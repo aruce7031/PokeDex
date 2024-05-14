@@ -8,7 +8,7 @@
         background-image: url("/public/pattern.svg");
         background-color: rgb(223, 223, 223);
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         flex-direction: row;
         align-items: center;
         width:100%;
@@ -26,6 +26,16 @@
         border-radius: 10px;
         text-align: left;
         padding : 30px 20px;
+    }
+    &__link-nav{
+        width: 2.5vw;
+        height: 13vw;
+        background-color: white;
+        border-radius: 0.5vw;
+        border:3px solid rgb(166, 161, 161);
+        &:hover{
+            cursor: pointer;
+        }
     }
     &__infoContainer {
         width: calc((1000 / 1280)* 100vw);

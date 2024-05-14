@@ -67,6 +67,7 @@ export const useGetOnePokemon = (id?: string) => {
         const res = await resJson(`${url}/${id}`);
 
         const resSpeciesState = await resJson(res.species.url);
+
         const flavorArray = resSpeciesState.flavor_text_entries.filter((obj : Flavor) => obj.language.name === "ja");
 
         const typeArray = res.types;

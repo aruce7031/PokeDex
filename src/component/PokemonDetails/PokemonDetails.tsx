@@ -11,7 +11,12 @@ const Details = () => {
 
     const { id } = useParams();
     const pokemon = useGetOnePokemon(id);
-
+    const next = String(Number(id) + 1) ;
+    // 一旦試し
+    let back = String(Number(id) - 1) ;
+    if(back === "0") {
+        back = "1";
+    }
     const togglePopUp = () => {
         setPopUp(!popUp)
     }
@@ -28,6 +33,7 @@ const Details = () => {
                     <PopUp></PopUp>
                 )}
             <div className="detail__top">
+            <a href={back} className="detail__link-nav" ></a>
                 <div className="detail__imageContainer">
                     <img src={pokemon.image} alt="" className='detail__image' />
                 </div>
@@ -38,6 +44,7 @@ const Details = () => {
                         <span className='detail__name title-font'>{pokemon.name}</span>
                     </h2>
                 </div>
+                <a href={next} className="detail__link-nav"></a>
             </div>
             <div className="detail__infoContainer">
                 <div className="detail__info">
@@ -66,7 +73,12 @@ const Details = () => {
                 </div>
                 <div className="detail__textBox">
                     <div className="detail__textBox-container">
-                        <p className='detail__textBox-text'>{pokemon.flavorArray[pokemon.flavorArray.length -1 ].flavor_text}</p>
+                        <p className='detail__textBox-text'>
+                        {
+                            pokemon.flavorArray.length !== 0 ?
+                            pokemon.flavorArray[pokemon.flavorArray.length -1 ].flavor_text:
+                            "表示できるテキストはありません。"
+                        }</p>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+import popIcon from "/public/ball.svg";
 
 const PopUp = () => {
     return (
@@ -9,7 +10,7 @@ const PopUp = () => {
                 </div>
                 <div className="pupUp__search">
                     <h3 className="popUp__search-word">
-                        <img src="../../../public/ball.svg" alt="" className="popUp__image"/>
+                        <img src={popIcon} alt="" className="popUp__image"/>
                         フリーワード
                     </h3>
                     <input type="text"  className="popUp__input"/>

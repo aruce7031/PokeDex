@@ -7,8 +7,13 @@
         border-bottom: 1px solid;
     }
     &__title {
-        & p {
+        &-text {
             font-size: 4vw;
+            color : inherit;
+            text-decoration: none;
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
     &__search{

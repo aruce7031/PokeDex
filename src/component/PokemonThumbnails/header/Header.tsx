@@ -11,7 +11,8 @@ const Header = (props : prop) => {
             <header className="header">
                 <div className="header__container">
                     <div className="header__title">
-                        <p>ポケモン図鑑</p>
+                        {/* <p>ポケモン図鑑</p> */}
+                        <a href="/" className="header__title-text">ポケモン図鑑</a>
                     </div>
                     <div className="header__search">
                         <img className="header__search-icon" src={icon} alt="" onClick={props.click} />
