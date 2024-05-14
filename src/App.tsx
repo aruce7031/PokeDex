@@ -1,4 +1,4 @@
-import { BrowserRouter,  Router, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PokemonThumbnails from './component/PokemonThumbnails/PokemonThumbnails'
 import Details from "./component/PokemonDetails/PokemonDetails";
 

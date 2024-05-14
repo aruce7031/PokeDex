@@ -34,10 +34,7 @@ export const useGetOnePokemon = (id : string | undefined) => {
         const url : string = "https://pokeapi.co/api/v2/pokemon";
         const res = await resJson(`${url}/${id}`);
         const speciesState = await resJson(res.species.url);
-        console.log(speciesState)
-        // console.log(speciesState.flavor_text_entries);
-        const test = speciesState.flavor_text_entries.filter((obj) => obj.language.name === "ja");
-        // console.log(test);
+        console.log(speciesState);
         const typeArray = res.types;
         const pokeType = typeArray.length > 1 ? `${changeJpPokeName(typeArray[0].type.name)} / ${changeJpPokeName(typeArray[1].type.name)}`  : changeJpPokeName(typeArray[0].type.name);
         const abilities : Array<object>= res.abilities;
