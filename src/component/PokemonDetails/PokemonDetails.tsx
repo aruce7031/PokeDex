@@ -4,11 +4,17 @@ import { useGetOnePokemon } from '../../hooks/detailPage/useGetOnePokemon';
 import PopUp from '../PokemonThumbnails/popUp/PopUp';
 import Header from '../PokemonThumbnails/header/Header';
 import DetailSpec from './DetailSpec/DetailSpec';
+import { PopUpAbility } from './popUpAbility/PopUpAbility';
 import {Link } from "react-router-dom"
+import questionIcon from "/public/question.png"
 
+interface PopUpAbilities {
+    [key: string]: boolean;
+}
 
 const Details = () => {
     const [popUp,setPopUp] = useState(false);
+    const [popUpAbility,setPopUpAbility] = useState<PopUpAbilities>({});
 
     const { id } = useParams();
 
@@ -28,6 +34,14 @@ const Details = () => {
     if(!pokemon){
         return <p>Loading...</p>
     }
+
+
+    const toggleAbility = (abilityName: string) => {
+        setPopUpAbility(prevState => ({
+            ...prevState,
+            [abilityName]: !prevState[abilityName]
+        }));
+    };
 
     return (
         <>
@@ -61,7 +75,21 @@ const Details = () => {
                         </div>
                         <div className='detail__ability' >
                             <p className='detail__font'>特性：</p>
-                            <div className='detail__ability-name'>{pokemon.abilities.map((ability, i) => <p key = {i} className='detail__font'>{ability}</p>)}</div>
+                            <div className='detail__ability-name'>{pokemon.abilities.map((ability, i) => {
+                                return (
+                                    <div key={i} className="detail__ability-container">
+                                        <p key = {i+100} className='detail__font'>{ability.abilityName}</p>
+                                            <button key={i} className='detail__ability-button' onClick={() => toggleAbility(ability.abilityName)}>
+                                                <img src={questionIcon} alt="" />
+                                                特性
+                                            </button>
+                                        {popUpAbility[ability.abilityName] && (
+                                            <PopUpAbility key={i+50} name={ability.abilityName} text={ability.ability} click={() => toggleAbility(ability.abilityName)}/>
+                                        )}
+                                    </div>
+                                )})
+                                }
+                            </div>
                         </div>
                     </div>
                     <div className="detail__spec-container">

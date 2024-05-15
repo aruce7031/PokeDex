@@ -10,7 +10,7 @@ interface pokemon {
     sorting : string
     height : string
     weight : string
-    abilities : string[]
+    abilities : Array<ability>
     stats : number[]
     statsName : string[]
     flavorArray : Flavor[]
@@ -37,6 +37,18 @@ interface Ability {
     slot: number,
 }
 
+interface AbilityFlavor {
+    flavor_text: string,
+    language:{
+    name: string,
+    url: string
+    },
+    version_group:{
+    name: string,
+    url: string
+    }
+}
+
 interface Stats {
     base_stat: number,
     effort: number,
@@ -44,6 +56,11 @@ interface Stats {
     name: string,
     url: string
     }
+}
+
+interface ability {
+    abilityName : string,
+    ability : string
 }
 
 
@@ -74,10 +91,16 @@ export const useGetOnePokemon = (id: string) => {
 
         const abilities : Ability [] = res.abilities;
         const filterAbilities = abilities.filter((obj : Ability) => !(obj.is_hidden));
-        const ability = await Promise.all(
+        const ability= await Promise.all(
             filterAbilities.map(async (obj :Ability) => {
                 const resAbility = await resJson(obj.ability.url);
-                return resAbility.names[0].name;
+                const abilityFlavorArray =resAbility.flavor_text_entries.filter((obj : AbilityFlavor) => (obj.language.name === "ja"));
+                const abilityFlavor = abilityFlavorArray[abilityFlavorArray.length-1].flavor_text.replace(/\r?\n/g, '');
+
+                return {
+                    abilityName : resAbility.names[0].name,
+                    ability : abilityFlavor
+                };
             })
         );
 

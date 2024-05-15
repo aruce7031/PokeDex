@@ -1,0 +1,39 @@
+.abilityText{
+    position : fixed;
+    top : 50%;
+    left: 50%;
+    width: 50vw;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    &-container{
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+        height: 19vw;
+        background-color: white;
+        border-radius: 10px;
+        border : 2px solid;
+    }
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        padding : 0 2vw;
+        border-bottom : solid rgb(153, 147, 147);
+        &-text{
+            font-size: 3vw;
+            margin-top:1vw;
+        }
+    }
+    &__main{
+        margin : auto 0;
+        height: 11vw;
+        align-items: center;
+        &-text{
+            font-size: 2vw;
+            padding: 0 5vw;
+            margin-top:2.5vw;
+        }
+    }
+}
