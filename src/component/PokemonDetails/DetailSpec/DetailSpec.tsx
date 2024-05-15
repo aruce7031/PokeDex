@@ -13,7 +13,7 @@ const DetailSpec = (props :prop) => {
             <p className="detail__spec-name detail__font">{props.statsName}</p>
             <div className="detail__spec-content">
                 <ul className="detail__spec-list">
-                    {baseItemArray.map((_,i) => <li key={i} className="detail__item-list"></li>) };
+                    {baseItemArray.map((_,i) => <li key={i} className="detail__item-list"></li>) }
                 </ul>
                 <ul className="detail__spec-list">
                     {valueItemArray.map((_,i) => <li key={i}  className="detail__item-list is-value"></li>)}
