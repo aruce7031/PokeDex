@@ -137,6 +137,7 @@
   border-radius: 1.5vw;
   margin-left: 3vw;
   font-size: 1.7vw;
+  align-items: center;
 }
 .detail__ability-button img {
   width: 2vw;
