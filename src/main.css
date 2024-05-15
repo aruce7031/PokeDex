@@ -142,6 +142,9 @@
 .detail__ability-button img {
   width: 2vw;
 }
+.detail__ability-button:hover {
+  cursor: pointer;
+}
 .detail__spec-container {
   width: 40vw;
   padding: 2vw;

@@ -88,6 +88,9 @@
             & img {
                 width: 2vw;
             }
+            &:hover{
+                cursor: pointer;
+            }
         }
     }
     &__spec-container{
