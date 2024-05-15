@@ -101,3 +101,25 @@
 .title-font{
     font-size: 3vw;
 }
+
+.next-button {
+    &::before {
+        content: '';
+        border-style: solid;
+        border-width: 0.9vw 0 0.9vw 1vw;
+        border-color: transparent transparent transparent red;
+        position: absolute;
+        transform: translate(0.9vw, 5.5vw);
+    }
+}
+
+.back-button {
+    &::before {
+        content: '';
+        border-style: solid;
+        border-width: 0.9vw 1vw 0.9vw 0;
+        border-color:  transparent red transparent  transparent;
+        position: absolute;
+        transform: translate(0.7vw, 5.5vw);
+        }
+}

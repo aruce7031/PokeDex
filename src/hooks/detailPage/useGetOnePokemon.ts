@@ -53,9 +53,8 @@ export const useGetOnePokemon = (id: string) => {
 
     useEffect(() => {
         const upDataPoke = async () => {
-        const pokeDetail = await getDetails(id)
-        setPokemonData({...pokeDetail})
-        }
+        const pokeDetail = await getDetails(id);
+        setPokemonData({...pokeDetail})};
         upDataPoke();
     },[id]);
 
@@ -97,14 +96,8 @@ export const useGetOnePokemon = (id: string) => {
             statsName : statsName,
             flavorArray : flavorArray
 
-        }
-
+        };
         return pokemon;
-    }
-
-
+    };
     return pokemonData;
-}
-
-
-
+};

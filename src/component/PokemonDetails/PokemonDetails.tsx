@@ -25,7 +25,7 @@ const Details = () => {
         setPopUp(!popUp)
     }
 
-    if(pokemon === undefined){
+    if(!pokemon){
         return <p>Loading...</p>
     }
 
@@ -34,10 +34,10 @@ const Details = () => {
         <div className="detail">
             <Header click = {togglePopUp}></Header>
             {popUp && (
-                    <PopUp></PopUp>
+                    <PopUp click = {togglePopUp}></PopUp>
                 )}
             <div className="detail__top">
-            <Link to={`/Details/${back}`} className="detail__link-nav" />
+            <Link to={`/Details/${back}`} className="detail__link-nav back-button" />
                 <div className="detail__imageContainer">
                     <img src={pokemon.image} alt="" className='detail__image' />
                 </div>
@@ -48,7 +48,7 @@ const Details = () => {
                         <span className='detail__name title-font'>{pokemon.name}</span>
                     </h2>
                 </div>
-            <Link to={`/Details/${next}`} className="detail__link-nav" />
+            <Link to={`/Details/${next}`} className="detail__link-nav next-button" />
             </div>
             <div className="detail__infoContainer">
                 <div className="detail__info">
@@ -65,14 +65,7 @@ const Details = () => {
                         </div>
                     </div>
                     <div className="detail__spec-container">
-                        {pokemon.statsName.map((statsName : any,i) => {
-                            return <DetailSpec
-                            key = {i}
-                            stats = {pokemon.stats[i]}
-                            statsName = {statsName}
-                            >
-                            </DetailSpec>
-                        })}
+                        {pokemon.statsName.map((statsName : any,i) => <DetailSpec key = {i} stats = {pokemon.stats[i]} statsName = {statsName}/>)}
                     </div>
                 </div>
                 <div className="detail__textBox">

@@ -1,9 +1,9 @@
-@use "component/PokemonThumbnails/Thumbnail/thumbnail";
-@use "component/PokemonThumbnails/PokemonThumbnails";
-@use "component/PokemonDetails/pokemonDetails";
-@use "component/PokemonThumbnails/header/header";
-@use "component/PokemonDetails/DetailSpec/detailSpec";
-@use "component/PokemonThumbnails/popUp/popUp.scss";
+@use "./styles/PokemonThumbnails";
+@use "./styles/thumbnail";
+@use "./styles/pokemonDetails";
+@use "./styles/detailSpec";
+@use "./styles/header";
+@use "./styles/popUp";
 
 html {
     font-size: 62.5%;

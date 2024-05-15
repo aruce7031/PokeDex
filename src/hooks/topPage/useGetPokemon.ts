@@ -7,9 +7,15 @@ interface Pokemon {
   url: string
 }
 
+interface Pokemons {
+  name : string,
+  image : string,
+  id : number,
+}
+
 export const useGetPokemon= (ref: RefObject<HTMLElement |null>) => {
   const url : string = "https://pokeapi.co/api/v2/pokemon";
-  const [pokemons, setPokemons] = useState<Array<object>>([]);
+  const [pokemons, setPokemons] = useState<Array<Pokemons>>([]);
   const [nextUrl, setNextUrl] = useState<string>(url);
 
   const scrollObserver = useCallback(
