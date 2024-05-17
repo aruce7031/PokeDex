@@ -1,14 +1,13 @@
 import { useParams} from 'react-router-dom';
 import { useState } from 'react';
 import { useGetOnePokemon } from '../../hooks/detailPage/useGetOnePokemon';
+import { typeImage } from '../../utils/typeImage';
 import PopUp from '../PokemonThumbnails/popUp/PopUp';
 import Header from '../PokemonThumbnails/header/Header';
 import DetailSpec from './DetailSpec/DetailSpec';
 import { PopUpAbility } from './popUpAbility/PopUpAbility';
 import {Link } from "react-router-dom"
 import questionIcon from "/public/question.png"
-
-import RockIcon from "../../assets/icon_type_rock.svg"
 
 
 interface PopUpAbilities {
@@ -77,7 +76,7 @@ const Details = () => {
                                {pokemon.type.map((str,i) => {
                                 return (
                                     <div key = {i}>
-                                        <img key= {`img${i}`}  src={pokemon.typeImage[i]} alt="" />
+                                        <img key= {`img${i}`}  src={typeImage(pokemon.typeImage[i])} alt="" />
                                         <p key={`typeName${i}`}  className='detail__type-name'>{str}</p>
                                     </div>
                                 )
@@ -122,7 +121,6 @@ const Details = () => {
                     </div>
                 </div>
             </div>
-            <img src={RockIcon} alt="" />
         </div>
         </>
     )
