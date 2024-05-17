@@ -74,7 +74,7 @@ const Details = () => {
                                {pokemon.type.map((str,i) => {
                                 return (
                                     <div key = {i}>
-                                        <img key= {`img${i}`}  src={pokemon.typeImage[i]} alt="" />
+                                        {/* <img key= {`img${i}`}  src={pokemon.typeImage[i]} alt="" /> */}
                                         <p key={`typeName${i}`}  className='detail__type-name'>{str}</p>
                                     </div>
                                 )

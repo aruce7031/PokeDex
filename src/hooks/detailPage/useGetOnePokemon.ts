@@ -99,6 +99,7 @@ export const useGetOnePokemon = (id: string) => {
         const pokeTypeArray = typeArray.map((typeObj : typeObj) => changeJpPokeName(typeObj.type.name));
         const ingUrl = "/public/icon_type_";
         const typeImageArray = typeArray.map((typeObj : typeObj) => `${ingUrl}${typeObj.type.name}.svg`);
+        console.log(typeImageArray)
         // const pokeType = typeArray.length > 1 ? `${changeJpPokeName(typeArray[0].type.name)} / ${changeJpPokeName(typeArray[1].type.name)}`  : changeJpPokeName(typeArray[0].type.name);
 
         const abilities : Ability [] = res.abilities;
