@@ -8,6 +8,9 @@ import { PopUpAbility } from './popUpAbility/PopUpAbility';
 import {Link } from "react-router-dom"
 import questionIcon from "/public/question.png"
 
+import RockIcon from "../../assets/icon_type_rock.svg"
+
+
 interface PopUpAbilities {
     [key: string]: boolean;
 }
@@ -74,7 +77,7 @@ const Details = () => {
                                {pokemon.type.map((str,i) => {
                                 return (
                                     <div key = {i}>
-                                        {/* <img key= {`img${i}`}  src={pokemon.typeImage[i]} alt="" /> */}
+                                        <img key= {`img${i}`}  src={pokemon.typeImage[i]} alt="" />
                                         <p key={`typeName${i}`}  className='detail__type-name'>{str}</p>
                                     </div>
                                 )
@@ -119,6 +122,7 @@ const Details = () => {
                     </div>
                 </div>
             </div>
+            <img src={RockIcon} alt="" />
         </div>
         </>
     )
