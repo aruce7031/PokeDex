@@ -105,6 +105,24 @@
   border: 3px solid rgb(166, 161, 161);
   border-radius: 20px;
 }
+.detail__type {
+  display: flex;
+  flex-direction: row;
+}
+.detail__type-container {
+  display: flex;
+  flex-direction: row;
+}
+.detail__type-container div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2vw;
+}
+.detail__type-container img {
+  width: 3.5vw;
+  height: 3.5vw;
+  margin: 0 auto;
+}
 .detail__body {
   display: flex;
 }

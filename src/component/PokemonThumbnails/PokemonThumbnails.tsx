@@ -27,7 +27,7 @@ const PokemonThumbnails = () => {
                     <PopUp click = {togglePopUp}></PopUp>
                 )}
             <div className="main-container">
-                {pokemons.map((obj : Pokemon) => <Thumbnail key={obj.id} name={obj.name} image = {obj.image} id = {obj.id}/>)}
+                {pokemons.map((obj : Pokemon) => <Thumbnail key={`poke${obj.id}`} name={obj.name} image = {obj.image} id = {obj.id}/>)}
                 <div ref={bottomRef} />
             </div>
         </div>

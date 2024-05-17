@@ -68,7 +68,19 @@ const Details = () => {
                 <div className="detail__info">
                     <div className="detail__features">
                         <p className='detail__sorting detail__font'>分類：{pokemon.sorting}</p>
-                        <p className='detail__type detail__font'>タイプ：{pokemon.type}</p>
+                        <div className="detail__type detail__font">
+                            <p>タイプ : </p>
+                            <div className='detail__type-container'>
+                               {pokemon.type.map((str,i) => {
+                                return (
+                                    <div key = {i}>
+                                        <img key= {`img${i}`}  src={pokemon.typeImage[i]} alt="" />
+                                        <p key={`typeName${i}`}  className='detail__type-name'>{str}</p>
+                                    </div>
+                                )
+                               } )}
+                            </div>
+                        </div>
                         <div className='detail__body'>
                             <p className='detail__height detail__font'>高さ：{pokemon.height}m</p>
                             <p className='detail__weight detail__font'>重さ：{pokemon.weight}kg</p>

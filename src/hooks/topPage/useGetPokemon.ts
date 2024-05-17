@@ -13,6 +13,14 @@ interface Pokemons {
   id : number,
 }
 
+interface PokeName {
+    language:{
+      name: string,
+      url: string
+    },
+    name: string
+  }
+
 export const useGetPokemon= (ref: RefObject<HTMLElement |null>) => {
   const url : string = "https://pokeapi.co/api/v2/pokemon";
   const [pokemons, setPokemons] = useState<Array<Pokemons>>([]);
@@ -55,8 +63,10 @@ export const useGetPokemon= (ref: RefObject<HTMLElement |null>) => {
           const state = await resJson(pokemon.url);
           const speciesState = await resJson(state.species.url);
 
+          const jaName = speciesState.names.filter((obj : PokeName) =>obj.language.name === "ja")[0].name;
+
           const obj ={
-              name : speciesState.names[0].name,
+              name : jaName,
               image : state.sprites.other["official-artwork"].front_default,
               id : state.id,
           }

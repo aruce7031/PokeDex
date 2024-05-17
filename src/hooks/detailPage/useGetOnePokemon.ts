@@ -5,7 +5,8 @@ import { changeJpPokeName } from "../../utils/changePokeType";
 interface pokemon {
     name : string
     image : string
-    type : string
+    type : string[]
+    typeImage : string[]
     id : number,
     sorting : string
     height : string
@@ -63,6 +64,14 @@ interface ability {
     ability : string
 }
 
+interface typeObj {
+    slot: number,
+    type:{
+    name: string,
+    url: string
+    }
+}
+
 
 export const useGetOnePokemon = (id: string) => {
 
@@ -87,7 +96,10 @@ export const useGetOnePokemon = (id: string) => {
         const flavorArray = resSpeciesState.flavor_text_entries.filter((obj : Flavor) => obj.language.name === "ja");
 
         const typeArray = res.types;
-        const pokeType = typeArray.length > 1 ? `${changeJpPokeName(typeArray[0].type.name)} / ${changeJpPokeName(typeArray[1].type.name)}`  : changeJpPokeName(typeArray[0].type.name);
+        const pokeTypeArray = typeArray.map((typeObj : typeObj) => changeJpPokeName(typeObj.type.name));
+        const ingUrl = "/public/type/icon_type_";
+        const typeImageArray = typeArray.map((typeObj : typeObj) => `${ingUrl}${typeObj.type.name}.svg`);
+        // const pokeType = typeArray.length > 1 ? `${changeJpPokeName(typeArray[0].type.name)} / ${changeJpPokeName(typeArray[1].type.name)}`  : changeJpPokeName(typeArray[0].type.name);
 
         const abilities : Ability [] = res.abilities;
         const filterAbilities = abilities.filter((obj : Ability) => !(obj.is_hidden));
@@ -104,12 +116,16 @@ export const useGetOnePokemon = (id: string) => {
             })
         );
 
+
+        // const typeImage = 
+
         const stats = res.stats.map((obj : Stats) => obj["base_stat"]);
 
         const pokemon ={
             name : resSpeciesState.names[0].name,
             image : res.sprites.other["official-artwork"].front_default,
-            type : pokeType,
+            type : pokeTypeArray,
+            typeImage : typeImageArray,
             id : res.id,
             sorting : resSpeciesState.genera[0].genus,
             height : (res.height / 10).toFixed(1),
